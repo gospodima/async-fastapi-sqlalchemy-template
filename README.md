@@ -74,7 +74,7 @@ Set `python.testing.pytestPath` as `python -m pytest`. If you want to use
 
 For debug mode, you can use the following configuration:
 
-```json
+```python
 {
     "name": "Python Debugger: FastAPI",
     "type": "debugpy",
