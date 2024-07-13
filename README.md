@@ -84,7 +84,7 @@ For debug mode, you can use the following configuration:
     "args": [
         "app.main:app",
         "--reload"
- ],
+    ],
     "jinja": true
 }
 ```
