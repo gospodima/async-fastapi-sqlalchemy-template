@@ -3,11 +3,9 @@ from typing import Any
 
 import bcrypt
 import jwt
-from fastapi.security import OAuth2PasswordBearer
 
 from app.config import settings
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/token")
 
 ACCESS_TOKEN_ALGORITHM = "HS256"
 
