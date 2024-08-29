@@ -68,10 +68,8 @@ async def client(session: AsyncSession) -> AsyncIterable[AsyncClient]:
     a session.
     """
     app.dependency_overrides[get_db_session] = lambda: session
-    # TODO: Type error should be resolved with new httpx release after
-    # https://github.com/encode/httpx/pull/3109
     async with AsyncClient(
-        transport=ASGITransport(app=app), base_url="http://test"  # type: ignore
+        transport=ASGITransport(app=app), base_url="http://test"
     ) as test_client:
         yield test_client
 
