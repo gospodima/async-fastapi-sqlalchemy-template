@@ -1,8 +1,8 @@
 -r requirements.txt
-black==24.4.*
-flake8==7.0.*
-mypy==1.10.*
+black==24.8.*
+flake8==7.1.*
+mypy==1.11.*
 expects==0.9.*
 types-requests==2.32.0.*
-pytest-asyncio==0.23.*
+pytest-asyncio==0.24.*
 git+https://github.com/tk0miya/testing.postgresql.git
