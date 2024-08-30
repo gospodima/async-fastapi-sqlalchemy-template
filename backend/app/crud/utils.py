@@ -18,14 +18,12 @@ async def is_object_unique(
         raise ValueError(f"{model.__tablename__} does not have id field.")
     data = data.model_dump(exclude_unset=True) if isinstance(data, BaseModel) else data
 
+    fields_to_check = [field for field in unique_fields if field in data]
+    if not fields_to_check:
+        return True  # Data has no unique fields
+
     ex = exists().where(
-        or_(
-            *[
-                getattr(model, field) == data[field]
-                for field in unique_fields
-                if field in data
-            ]
-        )
+        or_(*[getattr(model, field) == data[field] for field in fields_to_check])
     )
     if exclude_id is not None:
         ex = ex.where(getattr(model, "id") != exclude_id)
